@@ -7,8 +7,7 @@ Welcome to the CipherSchools website recreation project. The purpose of this pro
 This is a **UI Challenge** project.
 
 ## ScreenShots and Recordings
-
-`<RECORDING_HERE>`
+https://user-images.githubusercontent.com/22190833/236405747-3e2840ac-0461-46cb-9436-a07a758102a5.mp4
 
 
 ![](README/image/Home_001.jpg) ![](README/image/Home_002.jpg) ![](README/image/Home_003.jpg) ![](README/image/Home_004.jpg) ![](README/image/Home_005.jpg) ![](README/image/Home_006.jpg) ![](README/image/Home_007.jpg)
@@ -17,7 +16,7 @@ This is a **UI Challenge** project.
 ![Courses_001](README/image/Courses_001.jpg) ![Courses_001](README/image/Courses_002.jpg)
 
 
-![Courses_001](https://file+.vscode-resource.vscode-cdn.net/i%3A/Ron/Programming/Flutter/Projects/flutter-ui-challenges/week_01_cipherschools_recreate/README/image/Registration_001.jpg)
+![Registration_001](README/image/Registration_001.jpg)
 
 ## Project Overview
 
