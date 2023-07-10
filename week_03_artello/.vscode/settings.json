@@ -9,12 +9,19 @@
 		"**/.fvm": true
 	},
 	"cSpell.words": [
+		"appbar",
+		"artboard",
 		"artello",
 		"changa",
 		"Getx",
+		"lerp",
 		"LTWH",
 		"Reclip",
 		"screenutil",
+		"Somen",
+		"vsync",
+		"wakelock",
 		"webp"
-	]
+	],
+	"java.configuration.updateBuildConfiguration": "interactive"
 }

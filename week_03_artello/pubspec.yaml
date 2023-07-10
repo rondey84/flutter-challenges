@@ -4,7 +4,7 @@ publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: ">=2.19.6 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -13,6 +13,14 @@ dependencies:
   google_fonts: ^4.0.3
   flutter_screenutil: ^5.7.0
   theme_tailor_annotation: ^2.0.0
+  rive: ^0.11.0
+  wakelock: ^0.6.2
+  device_preview: ^1.1.0
+  flutter_native_splash: ^2.3.0
+  flutter_animate: ^4.1.1+1
+  get_storage: ^2.1.1
+  gap: ^3.0.0
+  figma_squircle: ^0.5.3
 
 dev_dependencies:
   flutter_test:
@@ -25,3 +33,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/images/
+    - assets/rive_animations/
+
+flutter_native_splash:
+  color: "#151517"

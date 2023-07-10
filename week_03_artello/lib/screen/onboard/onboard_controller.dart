@@ -1,27 +1,26 @@
 part of 'onboard.dart';
 
-class OnboardController extends GetxController {
+class OnboardController extends GetxController
+    with GetSingleTickerProviderStateMixin {
+  static OnboardController instance = Get.find();
+
   ui.Image? image;
   final hasImageLoaded = false.obs;
   Size cardSize = Size.zero;
 
-  var textStyle = GoogleFonts.changa(
-    fontSize: 40.r,
-    fontWeight: FontWeight.w500,
-    color: Get.theme.colorLight,
-  );
+  // Animation
+  late Animation<double> dragAnimation;
+  late AnimationController _dragAnimController;
+  late Tween<double> _dragTween;
+  final String dragBuilderTag = 'drag-animation-builder-tag';
 
   @override
   void onInit() async {
-    // Set Text Style
-    final textHeight = TextHelper.textSize(
-      'NFT',
-      textStyle.copyWith(fontWeight: FontWeight.bold),
-    ).height;
-    textStyle = textStyle.copyWith(height: textHeight * 0.014);
-
     // Card Size Calculation
     cardSize = _calcCardSize();
+
+    // Animation init
+    _initAnimation();
 
     // Fetch Image for painter
     image = await _initImage();
@@ -31,12 +30,12 @@ class OnboardController extends GetxController {
 
   Size _calcCardSize() {
     double aspectRatio = 0.874;
-
-    return Size(1.sw * 0.85, (1.sw * 0.85) / aspectRatio);
+    double widthMultiplier = 0.83;
+    return Size(1.sw * widthMultiplier, (1.sw * widthMultiplier) / aspectRatio);
   }
 
   Future<ui.Image> _initImage() async {
-    final ByteData data = await rootBundle.load('assets/image_01.webp');
+    final ByteData data = await rootBundle.load(ImageAssets.mainImage.path);
 
     // Load Image
     final Completer<ui.Image> completer = Completer();
@@ -48,5 +47,35 @@ class OnboardController extends GetxController {
       },
     );
     return completer.future;
+  }
+
+  void _initAnimation() {
+    _dragTween = Tween<double>(begin: 0.0, end: 1.0);
+
+    _dragAnimController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    );
+
+    dragAnimation = _dragTween.animate(_dragAnimController)
+      ..addListener(() {
+        update([dragBuilderTag]);
+      })
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          _dragAnimController.repeat();
+        } else if (status == AnimationStatus.dismissed) {
+          _dragAnimController.forward();
+        }
+      });
+
+    // Animation Start
+    _dragAnimController.forward();
+  }
+
+  @override
+  void onClose() {
+    _dragAnimController.dispose();
+    super.onClose();
   }
 }
