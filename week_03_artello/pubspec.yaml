@@ -21,6 +21,7 @@ dependencies:
   get_storage: ^2.1.1
   gap: ^3.0.0
   figma_squircle: ^0.5.3
+  random_avatar: ^0.0.8
 
 dev_dependencies:
   flutter_test:
