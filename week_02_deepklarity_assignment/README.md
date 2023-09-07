@@ -6,7 +6,7 @@ This is a **Functionality Challenge** project.
 
 ## ScreenShots and Recordings
 
-https://user-images.githubusercontent.com/22190833/171379654-782f70f5-c0a8-4ea5-b910-dd87f065e10d.mp4
+https://github.com/rondey84/flutter-challenges/assets/22190833/850baba2-62c0-48e8-bd9d-e7b842a34655
 
 ## Project Overview
 
