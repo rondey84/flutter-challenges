@@ -6,6 +6,12 @@ Artello Creative is a conceptual NFT (Non-Fungible Token) ecommerce auction app 
 
 This is a **UI Challenge** project.
 
+## ScreenShots and Recordings
+
+<video src="README/videos/Artello_video_recording.mp4" controls title="Title"></video>
+
+![Landing](README/images/artello_landing.jpg) ![Home](README/images/artello_home.jpg) ![Drawer](README/images/artello_drawer.jpg)
+
 ## Project Overview
 
 The project has been built using Flutter SDK v3.10.0 and Dart SDK v3.0.0. Flutter is an open-source mobile application development framework created by Google, which allows for fast and efficient development of high-quality apps for multiple platforms, including iOS, Android, web, and desktop.

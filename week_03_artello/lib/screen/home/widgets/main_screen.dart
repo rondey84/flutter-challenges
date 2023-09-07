@@ -79,25 +79,26 @@ class _Body extends GetView<HomeController> {
           const Gap(32),
           const _ImageSliderCarousel(),
           const Gap(32),
-          SizedBox(
-            height: 1.sw - controller.theme.pagePadding * 2,
-            child: PageView.builder(
-              controller: controller.itemListController,
-              itemCount: controller.itemsList.length,
-              itemBuilder: (_, index) {
-                return Obx(() {
-                  final item = controller.itemsList[index];
-                  return _ItemsCard(
-                    image: item.imageAsset,
-                    artName: item.nftName,
-                    price: item.nftPrice,
-                    bidders: item.bidders,
-                    offset: controller.itemListOffset.value - index,
-                  );
-                });
-              },
-            ),
-          ),
+          // SizedBox(
+          //   height: 1.sw - controller.theme.pagePadding * 2,
+          //   child: PageView.builder(
+          //     // controller: controller.itemListController,
+          //     itemCount: controller.itemsList.length,
+          //     itemBuilder: (_, index) {
+          //       return Obx(() {
+          //         final item = controller.itemsList[index];
+          //         return _ItemsCard(
+          //           image: item.imageAsset,
+          //           artName: item.nftName,
+          //           price: item.nftPrice,
+          //           bidders: item.bidders,
+          //           offset: controller.itemListOffset.value - index,
+          //         );
+          //       });
+          //     },
+          //   ),
+          // ),
+          const _ItemsRow(),
         ],
       ),
     );
@@ -344,7 +345,7 @@ class _SliderCarouselsCard extends GetView<HomeController> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        FittedBox(
+                        Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -374,7 +375,7 @@ class _SliderCarouselsCard extends GetView<HomeController> {
                             ],
                           ),
                         ),
-                        const Spacer(),
+                        // const Spacer(),
                         SizedBox(width: 16.0.w),
                         Transform.translate(
                           offset: Offset(48 * gauss, 0),
@@ -394,6 +395,7 @@ class _SliderCarouselsCard extends GetView<HomeController> {
                                 style:
                                     controller.theme.buttonTextStyle.copyWith(
                                   color: Colors.black,
+                                  fontSize: 14.0,
                                 ),
                               ),
                             ),
@@ -412,122 +414,81 @@ class _SliderCarouselsCard extends GetView<HomeController> {
   }
 }
 
-class _ItemsCard extends GetView<HomeController> {
-  const _ItemsCard({
-    required this.image,
-    required this.artName,
-    required this.price,
-    required this.offset,
-    required this.bidders,
-  });
-
-  final ImageAssets image;
-  final String artName;
-  final double price;
-  final double offset;
-  final List<String> bidders;
+class _ItemsRow extends GetView<HomeController> {
+  const _ItemsRow();
 
   @override
   Widget build(BuildContext context) {
-    double gauss = math.exp(-(math.pow((offset.abs() - 0.5), 2) / 0.08));
-    return Transform.translate(
-      offset: Offset(-32 * gauss * offset.sign, 0),
-      child: Container(
-        margin: controller.pagePadding,
-        child: LayoutBuilder(builder: (_, constraints) {
-          final imageContainerSize = Size(
-            constraints.maxWidth,
-            constraints.maxHeight * 0.7,
-          );
-          return Column(
-            children: [
-              SizedBox(
-                height: imageContainerSize.height,
-                width: imageContainerSize.width,
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Positioned.fill(
-                      child: Container(
-                        foregroundDecoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.bottomCenter,
-                            end: const Alignment(0, 0.5),
-                            colors: [
-                              Colors.black.withOpacity(0.3),
-                              Colors.black.withOpacity(0),
-                            ],
-                          ),
-                          borderRadius: SmoothBorderRadius(
-                            cornerRadius: 28.r,
-                            cornerSmoothing: 1,
-                          ),
-                        ),
-                        clipBehavior: Clip.antiAlias,
-                        child: Image.asset(
-                          image.path,
-                          scale: 2.8,
-                          alignment: Alignment(-offset.abs() * 1.2, 0),
-                          fit: BoxFit.none,
-                        ),
+    return SizedBox(
+      height: 1.sw - controller.theme.pagePadding * 2 - 40,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        padding: EdgeInsets.symmetric(horizontal: controller.theme.pagePadding),
+        itemBuilder: (_, index) {
+          final item = controller.itemsList[index];
+          return SizedBox(
+            width: 1.sw / 2,
+            child: LayoutBuilder(builder: (_, constraints) {
+              return Column(
+                children: [
+                  Container(
+                    width: constraints.maxWidth,
+                    height: constraints.maxWidth,
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.45),
+                      borderRadius: SmoothBorderRadius(
+                        cornerRadius: 32.r,
+                        cornerSmoothing: 1,
                       ),
                     ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0,
-                    vertical: 8.0,
-                  ).r,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      FittedBox(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Transform.translate(
-                              offset: Offset(8 * gauss, 0),
-                              child: Text(
-                                artName,
-                                style: controller.theme.carouselTitle.copyWith(
-                                  fontSize: controller
-                                      .theme.carouselTitle.fontSize?.sp,
-                                ),
-                              ),
-                            ),
-                            Transform.translate(
-                              offset: Offset(32 * gauss, 0),
-                              child: Text(
-                                '1.32 ETH',
-                                style: controller.theme.carouselPrice.copyWith(
-                                  fontSize: controller
-                                      .theme.carouselPrice.fontSize?.sp,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const Spacer(),
-                      SizedBox(width: 16.0.w),
-                      Transform.translate(
-                        offset: Offset(48 * gauss, 0),
-                        child: CircleAvatar(
-                          radius: 18,
-                          child: RandomAvatar(bidders[0]),
-                        ),
-                      ),
-                    ],
+                    clipBehavior: Clip.antiAlias,
+                    child: Image.asset(
+                      item.imageAsset.path,
+                      scale: 2.8,
+                      // alignment: Alignment(-offset.abs() * 1.2, 0),
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-              ),
-            ],
+                  const SizedBox(height: 8.0),
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            item.nftName,
+                            style: controller.theme.carouselTitle.copyWith(
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                        CircleAvatar(
+                          radius: 12,
+                          child: RandomAvatar(item.bidders.first),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: Row(
+                      children: [
+                        Text(
+                          '${item.nftPrice} ETH',
+                          style: controller.theme.carouselPrice.copyWith(
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+            }),
           );
-        }),
+        },
+        separatorBuilder: (_, __) => const SizedBox(width: 24.0),
+        itemCount: controller.itemsList.length,
       ),
     );
   }
