@@ -6,7 +6,7 @@ This is a **Functionality Challenge** project.
 
 ## ScreenShots and Recordings
 
-<video src="README/deepklarity_assignment.mp4" controls title="Title"></video>
+https://user-images.githubusercontent.com/22190833/171379654-782f70f5-c0a8-4ea5-b910-dd87f065e10d.mp4
 
 ## Project Overview
 

@@ -25,7 +25,7 @@ This is a personal Github repository for weekly challenges using the Flutter fra
 <details>
 <summary>Preview</summary>
 
-<video src="week_02_deepklarity_assignment/README/deepklarity_assignment.mp4" controls title="Title"></video>
+https://user-images.githubusercontent.com/22190833/171379654-782f70f5-c0a8-4ea5-b910-dd87f065e10d.mp4
 </details>
 
 

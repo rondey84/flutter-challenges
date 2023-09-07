@@ -8,7 +8,6 @@ This is a **UI Challenge** project.
 
 ## ScreenShots and Recordings
 
-<video src="README/videos/Artello_video_recording.mp4" controls title="Title"></video>
 
 ![Landing](README/images/artello_landing.jpg) ![Home](README/images/artello_home.jpg) ![Drawer](README/images/artello_drawer.jpg)
 
