@@ -1,0 +1,53 @@
+{
+	"dart.flutterSdkPath": ".fvm/flutter_sdk",
+	// Remove .fvm files from search
+	"search.exclude": {
+		"**/.fvm": true
+	},
+	// Remove from file watching
+	"files.watcherExclude": {
+		"**/.fvm": true
+	},
+	"cSpell.words": [
+		"Aditya",
+		"Aman",
+		"Anurag",
+		"appbar",
+		"Artboard",
+		"Artello",
+		"autocorrect",
+		"autofocus",
+		"Ayushi",
+		"cipherschools",
+		"cupertino",
+		"deepklarity",
+		"evenodd",
+		"fenix",
+		"Getx",
+		"Harshit",
+		"IELTS",
+		"informations",
+		"Klarity",
+		"Languify",
+		"linecap",
+		"linejoin",
+		"LTRB",
+		"MERN",
+		"nexacore",
+		"RGBA",
+		"RGBO",
+		"Satyam",
+		"screenutil",
+		"Shreyas",
+		"signin",
+		"signup",
+		"sqflite",
+		"squircle",
+		"swiggy",
+		"Thunkable",
+		"vsync",
+		"wakelock",
+		"webp"
+	],
+	"java.configuration.updateBuildConfiguration": "interactive"
+}

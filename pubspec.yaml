@@ -1,0 +1,75 @@
+name: flutter_challenges
+description: Weekly Challenges to Learn Flutter
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.1.4 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  nexacore:
+    git: https://github.com/rondey84/NexaCore.git
+
+  # UI - Design
+  cupertino_icons: ^1.0.2
+  google_fonts: ^6.1.0
+  flutter_svg: ^2.0.9
+  figma_squircle: ^0.5.3
+  theme_tailor_annotation: ^2.0.0
+
+  # UI - Layout
+  flutter_screenutil: ^5.9.0
+  scrollable_positioned_list: ^0.3.5
+  responsive_grid_list: ^1.3.2
+  carousel_slider: ^4.2.1
+
+  # UI - Animations
+  animations: ^2.0.7
+  animated_text_kit: ^4.2.2
+  flutter_animate: ^4.2.0+1
+  rive: ^0.12.1
+
+  # State Management
+  get: ^4.6.6
+
+  # Data
+  random_avatar: ^0.0.8
+  faker: ^2.1.0
+  json_annotation: ^4.8.1
+  sqflite: ^2.3.0
+  get_storage: ^2.1.1
+
+  # Network
+  cached_network_image: ^3.3.0
+  url_launcher: ^6.2.1
+  path: ^1.8.3
+
+  # System
+  wakelock: ^0.6.2
+  flutter_native_splash: ^2.3.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+  json_serializable: ^6.7.1
+  build_runner: ^2.4.6
+  theme_tailor: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    # Weekly assets
+    - assets/week_01/
+    - assets/week_02/
+    - assets/week_03/
+    - assets/week_03/images/
+    - assets/week_03/rive_animations/
+    # Fonts
+    - assets/google_fonts/OpenSans/

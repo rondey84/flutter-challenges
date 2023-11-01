@@ -1,0 +1,26 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Run Week-01",
+			"request": "launch",
+			"type": "dart",
+			"program": "lib/week_01/main.dart"
+		},
+		{
+			"name": "Run Week-02",
+			"request": "launch",
+			"type": "dart",
+			"program": "lib/week_02/main.dart"
+		},
+		{
+			"name": "Run Week-03",
+			"request": "launch",
+			"type": "dart",
+			"program": "lib/week_03/main.dart"
+		},
+	]
+}
